@@ -88,9 +88,9 @@ class SmzdmClient:
         self._http = httpx.Client(timeout=self.TIMEOUT)
 
         # 设备信息
-        self._version = self._cookies.get("device_smzdm_version", DEFAULT_VERSION)
-        self._platform = self._cookies.get("device_smzdm", "android")
-        self._device_id = self._cookies.get("device_id", random_string(32))
+        # self._version = self._cookies.get("device_smzdm_version", DEFAULT_VERSION)
+        # self._platform = self._cookies.get("device_smzdm", "android")
+        # self._device_id = self._cookies.get("device_id", random_string(32))
 
         # SK: 优先使用配置，否则自动生成
         if config.sk:
@@ -113,13 +113,13 @@ class SmzdmClient:
 
     def _app_headers(self) -> dict[str, str]:
         """APP 请求头。"""
-        vc = self._cookies.get("device_smzdm_version_code", DEFAULT_VERSION_CODE)
-        m = self._cookies.get("device_type", "Redmi")
-        s = self._cookies.get("device_system_version", "10")
-        p = self._platform.capitalize()
-        ua = f"smzdm_{self._platform}_V{self._version} rv:{vc} ({m};{p}{s};zh)smzdmapp"
+        # vc = self._cookies.get("device_smzdm_version_code", DEFAULT_VERSION_CODE)
+        # m = self._cookies.get("device_type", "Redmi")
+        # s = self._cookies.get("device_system_version", "10")
+        # p = self._platform.capitalize()
+        # ua = f"smzdm_{self._platform}_V{self._version} rv:{vc} ({m};{p}{s};zh)smzdmapp"
         return {
-            "User-Agent": ua,
+            "User-Agent": “smzdm 11.1.75 rv:170.2 (iPhone 14 Pro; iOS 26.5; zh_CN)/iphone_smzdmapp/11.1.75”,
             "Content-Type": "application/x-www-form-urlencoded",
             "Cookie": self._cookie,
             "request_key": str(random.randint(10**15, 10**16)),
