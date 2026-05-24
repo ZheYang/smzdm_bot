@@ -16,7 +16,7 @@ from smzdm_bot.config import UserConfig
 from smzdm_bot.exceptions import APIError
 
 # 常量
-SIGN_KEY = "apr1$AwP!wRRT$gJ/q.X24poeBInlUJC"
+SIGN_KEY = "zok5JtAq3$QixaA%mncn*jGWlEpSL3E1"
 SK_KEY = "geZm53XAspb02exN"  # DES 加密密钥
 DEFAULT_VERSION = "10.4.26"
 DEFAULT_VERSION_CODE = "866"
